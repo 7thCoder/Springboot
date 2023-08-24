@@ -21,6 +21,6 @@ public class orderControllerTest {
  
  @Test
  public void testOrderFormPage() throws Exception {
- mockMvc.perform(get("/orders/current")).andExpect(status().isOk()).andExpect(view().name("orderForm"));
+ mockMvc.perform(post("/orders")).andExpect(status().isOk()).andExpect(view().name("orderForm"));
  }
 }

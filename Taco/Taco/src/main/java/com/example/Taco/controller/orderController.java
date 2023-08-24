@@ -16,7 +16,7 @@ import com.example.Taco.taco.tacOrder;
 
 @Slf4j
 @Controller
-@RequestMapping("design/orders")
+@RequestMapping("/orders")
 @SessionAttributes("tacOrder")
 public class orderController {
     @GetMapping("/current")
@@ -25,7 +25,7 @@ public class orderController {
     }
 
     @PostMapping
-    public String processedOrder(@Valid tacOrder order,Errors errors, SessionStatus sessionStatus){
+    public String processOrder(@Valid tacOrder order,Errors errors, SessionStatus sessionStatus){
         if(errors.hasErrors()){
             return "orderForm";
         }
