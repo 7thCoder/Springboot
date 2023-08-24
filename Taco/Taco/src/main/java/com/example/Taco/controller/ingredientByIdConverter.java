@@ -4,12 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.stereotype.Component;
+import org.springframework.core.convert.converter.Converter;
 
 import com.example.Taco.taco.Ingredients;
 import com.example.Taco.taco.Ingredients.Type;
 
 @Component
-public class ingredientByIdConverter {
+public class ingredientByIdConverter implements Converter<String, Ingredients> {
     private Map<String, Ingredients> ingredientMap = new HashMap<>();
 
     public ingredientByIdConverter(){
@@ -35,7 +36,7 @@ public class ingredientByIdConverter {
         new Ingredients("SRCR", "Sour Cream", Type.SAUCE));
     }
 
-    
+    @Override
     public Ingredients convert(String id){
         return ingredientMap.get(id);
     }

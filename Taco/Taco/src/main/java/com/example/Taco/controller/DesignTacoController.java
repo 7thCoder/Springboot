@@ -4,6 +4,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.validation.Valid;
+import org.springframework.validation.Errors;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -57,13 +60,16 @@ public class DesignTacoController {
     }
 
     @GetMapping
-    public String showDesignForm(){
+    public String showdesignForm(){
         return "design";
     }
 
     @PostMapping
-    public String processTaco(Taco taco,  @ModelAttribute tacOrder tacoOrder){
-        tacoOrder.addTaco(taco);
+    public String processTaco(@Valid Taco taco,Errors errors,  @ModelAttribute tacOrder tacOrder){
+        if(errors.hasErrors()){
+            return "design";
+        }
+        tacOrder.addTaco(taco);
         log.info("Processing taco: {}",taco);
 
         return "redirect:/orders/current";
