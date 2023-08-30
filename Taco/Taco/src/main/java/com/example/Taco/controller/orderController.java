@@ -13,12 +13,20 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.example.Taco.taco.tacOrder;
+import com.example.Taco.Repository.orderRepository;
 
 @Slf4j
 @Controller
 @RequestMapping("/orders")
 @SessionAttributes("tacOrder")
 public class orderController {
+
+    private orderRepository orderRepo;
+
+    public orderController(orderRepository orderRepo){
+        this.orderRepo = orderRepo;
+    }
+
     @GetMapping("/current")
     public String orderForm(){
         return "orderForm";
@@ -30,6 +38,7 @@ public class orderController {
             return "orderForm";
         }
         log.info("Order submitted: {}",order);
+        orderRepo.save(order);
         sessionStatus.setComplete();
         
         return "redirect:/";
