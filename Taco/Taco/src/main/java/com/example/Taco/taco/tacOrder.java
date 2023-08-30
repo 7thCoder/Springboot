@@ -1,12 +1,15 @@
 package com.example.Taco.taco;
 
 import java.util.List;
+import java.io.Serializable;
 
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.CreditCardNumber;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -16,10 +19,12 @@ import lombok.Data;
 import com.example.Taco.taco.Taco;
 
 @Data
-public class tacOrder {
+@Table
+public class tacOrder   implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @Id
     private Long id;
 
     private Date placedAt;
