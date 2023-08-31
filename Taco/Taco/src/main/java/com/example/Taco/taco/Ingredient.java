@@ -26,4 +26,8 @@ public class Ingredient implements Persistable<String> {
         WRAP, PROTEIN, VEGGIES, CHEESE, SAUCE
     }
 
+    @Override
+    public boolean isNew(){
+        return false;
+    }
 }
