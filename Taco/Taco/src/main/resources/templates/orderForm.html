@@ -87,6 +87,11 @@
  <br/>
 
  <input type="submit" value="Submit Order"/>
+ <input type="hidden" name="_csrf" th:values="${_csrf.token}"/> 
+</form>
+
+ <form action="POST" th:action="@{/logout}">
+    <input type="submit" value="Logout"/>
  </form>
  </body>
 </html>
