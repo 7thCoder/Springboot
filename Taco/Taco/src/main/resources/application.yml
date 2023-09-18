@@ -3,5 +3,3 @@ spring:
         generate-unique-name: false
         name: tacocloud
         
-server:
-    port: 9090

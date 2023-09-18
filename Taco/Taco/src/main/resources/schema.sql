@@ -32,14 +32,14 @@ create table if not exists Ingredient(
 );
 
 create table if not exists User(
-    city varchar(25) not null,
-    fullname varchar(25) not null,
-    id identity,
-    password varchar(25) not null,
-    phone_number varchar(25) not null,
-    street varchar(25) not null,
-    username varchar(25) not null,
-    zip varchar(6) not null
+    id identity, 
+    username varchar(256) not null,
+    password varchar(256) not null,
+    fullname varchar(256) not null,
+    street varchar(256) not null,
+    city varchar(256) not null,
+    zip varchar(256) not null,
+    phoneNumber varchar(256) not null
 );
 
 -- alter table Taco
