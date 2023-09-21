@@ -21,7 +21,7 @@ import lombok.RequiredArgsConstructor;
 @Entity
 @Data
 @Table
-// @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 @RequiredArgsConstructor
 public class User implements UserDetails {
 

@@ -13,12 +13,12 @@ import com.example.Taco.security.registrationForm;
 
 @Controller
 @RequestMapping("/register")
-public class RegistrationController {
+public class registrationController {
     
     private userRepository userRepo;
     private PasswordEncoder passwordEncoder;
 
-    public RegistrationController(
+    public registrationController(
         userRepository userRepo, PasswordEncoder passwordEncoder
     ){
         this.userRepo = userRepo;
@@ -31,7 +31,7 @@ public class RegistrationController {
     }
 
     @PostMapping
-    public String processedRegistration (registrationForm form){
+    public String processRegistration (registrationForm form){
         userRepo.save(form.toUser(passwordEncoder));
         return "redirect:/login";
     }
