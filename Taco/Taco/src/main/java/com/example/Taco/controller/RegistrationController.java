@@ -13,12 +13,12 @@ import com.example.Taco.security.registrationForm;
 
 @Controller
 @RequestMapping("/register")
-public class registrationController {
+public class RegistrationController {
     
     private userRepository userRepo;
     private PasswordEncoder passwordEncoder;
 
-    public registrationController(
+    public RegistrationController(
         userRepository userRepo, PasswordEncoder passwordEncoder
     ){
         this.userRepo = userRepo;

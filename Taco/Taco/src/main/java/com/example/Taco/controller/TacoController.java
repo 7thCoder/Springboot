@@ -17,7 +17,7 @@ import com.example.Taco.taco.tacOrder;
 public class TacoController {
     private tacOrder tacorepo;
 
-    public TacoController(TacoRepository tacoRepo){
+    public TacoController(tacOrder tacoRepo){
         this.tacorepo = tacoRepo;
     }
 

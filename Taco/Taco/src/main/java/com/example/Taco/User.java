@@ -3,15 +3,21 @@ package com.example.Taco;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 import org.springframework.data.relational.core.mapping.Table;
 
 import java.util.Arrays;
 import java.util.Collection;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+// import javax.persistence.Entity;
+// import javax.persistence.Id;
+// import javax.persistence.GeneratedValue;
+// import javax.persistence.GenerationType;
 
 import lombok.AccessLevel;
 import lombok.Data;
