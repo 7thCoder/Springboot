@@ -26,7 +26,7 @@ import com.example.Taco.taco.Taco;
 
 @Data
 @Table
-public class tacOrder   implements Serializable {
+public class tacOrder  implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
