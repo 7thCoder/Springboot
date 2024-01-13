@@ -3,24 +3,24 @@ package com.example.Taco.taco;
 import java.util.Date;
 import java.util.List;
 
-// import javax.validation.constraints.NotNull;
-// import javax.validation.constraints.Size;
-
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Table;
 
 import com.example.Taco.taco.Ingredient;
 
 import lombok.Data;
 
 @Data
-@Table
+@Entity
 public class Taco {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private Date createdAt = new Date();
@@ -31,5 +31,6 @@ public class Taco {
     
     @NotNull
     @Size(min=5, message="You must choose atleast one ingredient: ")
+    @ManyToMany ()
     private List <Ingredient> ingredients;
 }

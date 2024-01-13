@@ -3,9 +3,10 @@ package com.example.Taco.taco;
 import java.util.List;
 import java.io.Serializable;
 
-// import javax.validation.constraints.Digits;
-// import javax.validation.constraints.NotBlank;
-// import javax.validation.constraints.Pattern;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;
@@ -13,8 +14,6 @@ import jakarta.validation.constraints.Pattern;
 
 
 import org.hibernate.validator.constraints.CreditCardNumber;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Table;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -25,12 +24,13 @@ import com.example.Taco.taco.Taco;
 
 
 @Data
-@Table
+@Entity
 public class tacOrder  implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private Date placedAt;
