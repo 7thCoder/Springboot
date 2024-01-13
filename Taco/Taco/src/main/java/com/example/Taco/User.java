@@ -8,9 +8,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
-// import org.springframework.data.relational.core.mapping.Table;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -27,7 +24,6 @@ import lombok.RequiredArgsConstructor;
 
 @Entity
 @Data
-@Table
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 @RequiredArgsConstructor
 public class User implements UserDetails {
