@@ -46,21 +46,38 @@ public class securityConfig {
     //     };
     // }
 
+    // @Bean
+    // public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
+    //     return http
+    //     .authorizeRequests()
+    //     .antMatchers("/design", "/orders")
+    //     .access("hasRole('USER')")
+    //     .antMatchers("/", "/**").access("permitAll()")
+    //     .and()
+    //     .formLogin()
+    //     .loginPage("/login")
+    //     .defaultSuccessUrl("/design")
+    //     .and()
+    //     .logout()
+    //     .and()
+    //     .build();
+    // }    
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         return http
-        .authorizeRequests()
-        .antMatchers("/design", "/orders")
-        .access("hasRole('USER')")
-        .antMatchers("/", "/**").access("permitAll()")
-        .and()
-        .formLogin()
-        .loginPage("/login")
+		.authorizeHttpRequests((authorize) -> authorize
+			.requestMatchers("/design", "/orders").hasRole("USER")
+			.requestMatchers("/","/**").permitAll()
+		)
+       .formLogin(formLogin ->formLogin.loginPage("/login").permitAll()
         .defaultSuccessUrl("/design")
-        .and()
-        .logout()
-        .and()
+       )
+        .logout(lOut -> {lOut.invalidateHttpSession(true)
+                .clearAuthentication(true).logoutSuccessUrl("/login?logout")
+                .permitAll();
+        })
         .build();
-    }    
+    }
 
 }

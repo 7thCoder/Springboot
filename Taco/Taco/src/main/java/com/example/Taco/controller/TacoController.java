@@ -22,10 +22,10 @@ public class TacoController {
         this.tacorepo = tacoRepo;
     }
 
-    @GetMapping(params = "recent")
-    public Iterable<Taco> recentTacos(){
-        PageRequest page = PageRequest.of(
-            0, 12, Sort.by("createdAt").descending());
-        return tacorepo.findAll(page).getContent();
-    }
+    // @GetMapping(params = "recent")
+    // public Iterable<Taco> recentTacos(){
+    //     PageRequest page = PageRequest.of(
+    //         0, 12, Sort.by("createdAt").descending());
+    //     return tacorepo.findAll(page).getContent();
+    // }
 }
