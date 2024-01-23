@@ -11,7 +11,6 @@ import jakarta.persistence.ManyToMany;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-import com.example.Taco.taco.Ingredient;
 
 import lombok.Data;
 
