@@ -32,4 +32,7 @@ public class Taco {
     @Size(min=5, message="You must choose atleast one ingredient: ")
     @ManyToMany ()
     private List <Ingredient> ingredients;
+
+   
 }
+
