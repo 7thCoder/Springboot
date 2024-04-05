@@ -43,4 +43,6 @@ public class ingredientController {
     public void deleteIngredient(@PathVariable ("id") String ingredientId){
         repo.deleteById(ingredientId);
     }
+
+    
 }

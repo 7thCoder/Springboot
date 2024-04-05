@@ -82,5 +82,15 @@ public class TacoController{
                                     Ingredient.class, ingredientId);
     }
 
+    public void deleteIngredient(Ingredient ingredient) {
+        rest.delete("http://localhost:8080/ingredients/{id}",
+        ingredient.getId());
+    }
+
+    public Ingredient createIngredient(Ingredient ingredient) {
+        return rest.postForObject("http://localhost:8080/ingredients",
+        ingredient, Ingredient.class);
+    }
+
 
 }

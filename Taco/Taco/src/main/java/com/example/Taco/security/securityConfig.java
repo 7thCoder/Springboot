@@ -10,6 +10,8 @@ import org.springframework.boot.CommandLineRunner;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 // import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -75,7 +77,10 @@ public class securityConfig {
 		.authorizeHttpRequests((authorize) -> authorize
 			.requestMatchers("/design", "/orders").hasRole("USER")
 			.requestMatchers("/","/**").permitAll()
+            .requestMatchers(HttpMethod.POST,"/api/ingredients").hasAnyAuthority("SCOPE_writeIngredients")
+            .requestMatchers(HttpMethod.DELETE,"/api/ingredients").hasAnyAuthority("SCOPE_deleteIngredients")
 		)
+        .oauth2ResourceServer((oauth2)->oauth2.jwt(Customizer.withDefaults()))
        .formLogin(formLogin ->formLogin.loginPage("/login").permitAll()
         .defaultSuccessUrl("/design")
        )
