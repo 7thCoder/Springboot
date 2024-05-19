@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 // import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -30,6 +31,7 @@ import com.example.Taco.taco.Ingredient.Type;
 import com.example.Taco.User;
 
 @Configuration
+@EnableWebSecurity
 public class securityConfig {
 
     @Bean
@@ -90,6 +92,8 @@ public class securityConfig {
         })
         .build();
     }
+
+    
 
     // @Bean
     // public CommandLineRunner dataLoader( IngredientRepository repo, userRepository userRepo,  PasswordEncoder encoder,  tacoRepository tacoRepo) {
